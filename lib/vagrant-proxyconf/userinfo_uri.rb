@@ -32,13 +32,15 @@ module VagrantPlugins
 
       # @return [String] the username
       def user
-        return URI.decode(@uri.user) if @uri.user
+        #return URI.decode(@uri.user) if @uri.user
+        return URI.decode_www_form_component(@uri.user) if @uri.user
         @uri.user
       end
 
       # @return [String] the password
       def pass
-        return URI.decode(@uri.password) if @uri.password
+        #return URI.decode(@uri.password) if @uri.password
+        return URI.decode_www_form_component(@uri.password) if @uri.password
         @uri.password
       end
 
